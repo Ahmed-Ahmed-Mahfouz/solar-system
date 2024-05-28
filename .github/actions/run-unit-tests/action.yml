@@ -6,7 +6,7 @@ runs:
     - name: Run unit tests
       id: nodejs-unit-testing-step
       run: npm test
-
+      shell: bash
     - name: Archive test result
       if: steps.nodejs-unit-testing-step.outcome == 'failure' || steps.nodejs-unit-testing-step.outcome == 'success'
       uses: actions/upload-artifact@v3

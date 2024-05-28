@@ -13,10 +13,12 @@ runs:
 
     - name: Install dependencies
       run: npm install
+      shell: bash
 
     - name: Run code coverage
       continue-on-error: true
       run: npm run coverage
+      shell: bash
 
     - name: Archive coverage results
       uses: actions/upload-artifact@v3

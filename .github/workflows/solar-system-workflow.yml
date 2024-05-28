@@ -41,6 +41,8 @@ jobs:
     name: Code Coverage
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Check Code Coverage
         uses: ./.github/actions/check-code-coverage
 

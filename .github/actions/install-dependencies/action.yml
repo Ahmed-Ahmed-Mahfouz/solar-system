@@ -5,3 +5,4 @@ runs:
   steps:
     - name: Install dependencies
       run: npm install
+      shell: bash

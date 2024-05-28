@@ -1,0 +1,16 @@
+name: Checkout and Setup Node
+description: Checks out the repository and sets up Node.js
+inputs:
+  node-version:
+    description: 'Node.js version'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js version
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node-version }}

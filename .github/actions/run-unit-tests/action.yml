@@ -1,0 +1,15 @@
+name: Run Unit Tests
+description: Runs npm unit tests
+runs:
+  using: 'composite'
+  steps:
+    - name: Run unit tests
+      id: nodejs-unit-testing-step
+      run: npm test
+
+    - name: Archive test result
+      if: steps.nodejs-unit-testing-step.outcome == 'failure' || steps.nodejs-unit-testing-step.outcome == 'success'
+      uses: actions/upload-artifact@v3
+      with:
+        name: mocha-test-result
+        path: test-results.xml

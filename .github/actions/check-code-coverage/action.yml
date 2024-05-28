@@ -1,0 +1,26 @@
+name: Check Code Coverage
+description: Runs code coverage and uploads results
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js version 18
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run code coverage
+      continue-on-error: true
+      run: npm run coverage
+
+    - name: Archive coverage results
+      uses: actions/upload-artifact@v3
+      with:
+        name: code-coverage-result
+        path: coverage
+        retention-days: 5

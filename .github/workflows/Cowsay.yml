@@ -1,0 +1,17 @@
+name: Cowsay
+
+on: [push, pull_request]
+
+jobs:
+  cowsay-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run cowsay
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cowsay
+          cowsay "Hello, GitHub Actions!"

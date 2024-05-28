@@ -24,6 +24,8 @@ jobs:
             operating_system: macos-latest
     runs-on: ${{ matrix.operating_system }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Checkout and Setup Node
         uses: ./.github/actions/setup-node
         with:

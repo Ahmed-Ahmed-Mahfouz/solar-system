@@ -14,4 +14,4 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y cowsay
-          cowsay "Hello, GitHub Actions!"
+          cowsay "Hello, Ahmed Mahfouz"
